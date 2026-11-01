@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChatGPT Ads Business Playbook</title>
+<style>
+:root{--bg:#f6f5ff;--card:#fff;--ink:#14173a;--mute:#5a5f86;--navy:#14173a;--sun:#ffb21e;--mint:#0fa97a;--red:#d63a3a;--line:#dedcf5;--pr:#1c1f4a;--prt:#e9ebff;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#0d0f26;--card:#171a3d;--ink:#f1f1ff;--mute:#a9adda;--line:#2b2f66;--pr:#0a0c1f;--prt:#dfe2ff;color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px}
+.hero{background:var(--navy);color:#fff;padding:calc(34px + env(safe-area-inset-top,0px)) 0 40px}
+.hero h1{font-size:2.3rem;line-height:1.1;margin:0 0 14px;font-weight:900;letter-spacing:-.02em}
+.hero h1 b{background:var(--sun);color:var(--navy);padding:0 .25em;border-radius:8px}
+.hero p{color:#cfd2ff;margin:0 0 12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chips span{background:rgba(255,255,255,.12);padding:6px 13px;border-radius:99px;font-size:.8rem;font-weight:700}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav div{display:flex;gap:8px;overflow-x:auto;padding:10px 18px;scrollbar-width:none}
+nav a{flex:none;color:var(--ink);text-decoration:none;font-weight:800;font-size:.85rem;background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:99px}
+.bar{height:4px;background:var(--sun);width:0}
+section{padding:42px 0 6px}
+.tag{display:inline-block;background:var(--sun);color:var(--navy);font-weight:900;font-size:.8rem;padding:4px 12px;border-radius:99px;margin-bottom:10px}
+h2{font-size:1.85rem;line-height:1.15;margin:0 0 8px;font-weight:900;letter-spacing:-.01em}
+h3{font-size:1.3rem;line-height:1.25;margin:28px 0 8px;font-weight:800}
+p{margin:0 0 14px}
+.lead{color:var(--mute);font-size:1.05rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin:16px 0}
+.card.tip{border-left:7px solid var(--mint)}
+.card.warn{border-left:7px solid var(--red)}
+.card.gold{border-left:7px solid var(--sun)}
+.card h4{margin:0 0 6px;font-size:1.1rem}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:16px 0}
+ol.steps li{counter-increment:s;position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 14px 14px 62px;margin-bottom:10px}
+ol.steps li:before{content:counter(s);position:absolute;left:14px;top:14px;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--sun);font-weight:900;display:grid;place-items:center}
+ul.chk{list-style:none;padding:0;margin:12px 0}
+ul.chk li{padding:8px 0 8px 36px;position:relative;border-bottom:1px dashed var(--line)}
+ul.chk li:before{content:"✓";position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:8px;background:var(--mint);color:#fff;font-weight:900;display:grid;place-items:center;font-size:.9rem}
+.flow{display:flex;flex-direction:column;gap:0;margin:18px 0}
+.flow div{background:var(--card);border:2px solid var(--navy);border-radius:16px;padding:12px 14px;font-weight:800;text-align:center}
+.flow i{font-style:normal;text-align:center;font-size:1.4rem;line-height:1.3;color:var(--sun)}
+table{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+th,td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--navy);color:#fff}
+.sc{overflow-x:auto;margin:16px 0}
+details.pm{background:var(--card);border:1px solid var(--line);border-radius:18px;margin:12px 0;overflow:hidden}
+details.pm summary{padding:15px 16px;font-weight:800;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+details.pm summary::-webkit-details-marker{display:none}
+details.pm summary:before{content:"▸";color:var(--sun);font-size:1.3rem;transition:transform .15s}
+details.pm[open] summary:before{transform:rotate(90deg)}
+.pb{background:var(--pr);color:var(--prt);padding:14px;margin:0 12px 12px;border-radius:14px;white-space:pre-wrap;font:.88rem/1.6 ui-monospace,Menlo,Consolas,monospace;word-break:break-word}
+.cp{display:block;width:calc(100% - 24px);margin:0 12px 14px;padding:14px;border:0;border-radius:14px;background:var(--sun);color:var(--navy);font-weight:900;font-size:1rem}
+.cp:active{transform:scale(.98)}
+.big{font-size:2.6rem;font-weight:900;line-height:1;color:var(--mint)}
+.foot{background:var(--navy);color:#cfd2ff;padding:34px 0 calc(40px + env(safe-area-inset-bottom,0px));margin-top:50px;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="hero"><div class="wrap">
+<h1>ChatGPT Ads <b>Business</b> Playbook</h1>
+<p>Zero se start. Simple English. Step by step. Is guide ko follow karo aur AI ki help se apna digital product business banao.</p>
+<p>Ads on ChatGPT are very new in India. Early sellers get cheaper clicks and less competition. That is your first-mover edge.</p>
+<div class="chips"><span>10 chapters</span><span>50+ copy-paste prompts</span><span>Made for phone</span></div>
+</div></div>
+<nav><div class="bar" id="bar"></div><div>
+<a href="#c1">1 Idea</a><a href="#c2">2 Product</a><a href="#c3">3 Store</a><a href="#c4">4 Copy</a><a href="#c5">5 Budget</a><a href="#c6">6 Image</a><a href="#c7">7 Video</a><a href="#c8">8 Launch</a><a href="#c9">9 Scale</a><a href="#c10">10 Plan</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="c0" style="padding-top:30px">
+<div class="card gold"><h4>Real talk about the $1 billion</h4>
+<p>A billion-dollar company is a long game: first ₹1 lakh, then ₹10 lakh, then a team and many products. No guide can promise it. This playbook gives you the exact first steps, and those steps are the same ones every big business starts with.</p></div>
+<h3>How the money flows</h3>
+<div class="flow"><div>1. Find a problem people pay to solve</div><i>↓</i><div>2. Make a digital product with AI</div><i>↓</i><div>3. Sell it on a free store page</div><i>↓</i><div>4. Show ads inside ChatGPT</div><i>↓</i><div>5. Track, improve, repeat</div></div>
+<div class="card tip"><h4>Why digital product?</h4><p>You make it once. You can sell it 1,000 times. No stock, no delivery, no shop rent. Good for a beginner.</p></div>
+<div class="card warn"><h4>Before you start</h4><p>You need: a phone or laptop, a ChatGPT account, an email, a bank account, and ₹5,000 to ₹15,000 for testing. If you are under 18, ask a parent to open the ad and payment accounts.</p></div>
+<h3>The 6 numbers that run your business</h3>
+<div class="sc"><table><tr><th>Number</th><th>Meaning</th></tr>
+<tr><td><b>CTR</b></td><td>Clicks ÷ views. Shows if your ad is interesting.</td></tr>
+<tr><td><b>CPC</b></td><td>Cost of one click.</td></tr>
+<tr><td><b>CVR</b></td><td>Buyers ÷ visitors. Shows if your page sells.</td></tr>
+<tr><td><b>CAC</b></td><td>Ad spend ÷ buyers. What one customer costs you.</td></tr>
+<tr><td><b>AOV</b></td><td>Average money one buyer pays.</td></tr>
+<tr><td><b>ROAS</b></td><td>Sales ÷ ad spend. Above 1 you earn more than you spend; after fees you need more.</td></tr></table></div>
+<div class="card gold"><h4>The 3 levers</h4><p>Profit grows in only 3 ways: (1) cheaper clicks, (2) more visitors who buy, (3) more money per buyer. Every chapter works on one of these.</p></div>
+<details class="pm"><summary>Prompt 21: Build my business model</summary>
+<div class="pb">Act as a startup advisor for India. I want to sell [product] to [audience] using ChatGPT ads. Make a one-page business model: customer, problem, offer, price ladder (3 prices), how I get customers, main costs, and the 3 biggest risks with a fix for each. Use simple English and a table.</div><button class="cp">Copy prompt</button></details>
+</section>
+
+<section id="c1"><span class="tag">Chapter 1</span><h2>Choose what to sell</h2>
+<p class="lead">Rule: sell the solution to ONE clear problem for ONE type of person.</p>
+<h3>Easy products to start</h3>
+<div class="sc"><table><tr><th>Product</th><th>Price</th></tr>
+<tr><td>Prompt packs (e.g. 100 prompts for Instagram reels)</td><td>₹99–₹499</td></tr>
+<tr><td>Templates (resume, Excel budget, Notion planner)</td><td>₹149–₹699</td></tr>
+<tr><td>Mini e-book or PDF guide</td><td>₹99–₹499</td></tr>
+<tr><td>Checklists and 7-day challenges</td><td>₹49–₹299</td></tr>
+<tr><td>Short video course</td><td>₹499–₹2,999</td></tr>
+<tr><td>Study notes, exam planners</td><td>₹99–₹399</td></tr></table></div>
+<h3>Who buys? Pick one</h3>
+<ul class="chk"><li>College students and job seekers</li><li>Small shop owners and freelancers</li><li>Working parents and homemakers</li><li>Creators and coaches</li></ul>
+<details class="pm" open><summary>Prompt 1: Find 10 product ideas</summary>
+<div class="pb">Act as a product researcher for the Indian market. My audience: [students / freelancers / shop owners].
+Give 10 digital product ideas they would pay for. For each idea give:
+1) the problem it solves 2) who exactly buys 3) price in rupees 4) how easy to make with AI (1-5) 5) one reason people would say yes.
+Then show the best 3 in a table.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 2: Check competition</summary>
+<div class="pb">I want to sell: [your idea]. List what similar products exist in India and worldwide, their usual price, what customers complain about, and 3 ways I can make mine better and different. Keep it simple.</div><button class="cp">Copy prompt</button></details>
+<div class="card tip"><h4>Pick the winner</h4><p>Score each idea 1 to 5 on: people ask for it, I can make it in 3 days, I can explain it in one line. Highest score wins.</p></div>
+<h3>4 filters for a winning niche</h3>
+<ul class="chk"><li><b>Painful:</b> people want it fixed now (exam, job, money, time)</li><li><b>Paying:</b> others already sell similar things</li><li><b>Reachable:</b> people ask ChatGPT about it</li><li><b>Fast result:</b> buyer gets a win in 7 days</li></ul>
+<h3>Where to find real demand</h3>
+<ul class="chk"><li>Reddit, Quora and YouTube comments: what do people ask again and again?</li><li>Top-selling items on Superprofile and Gumroad pages</li><li>Instagram reels with many comments like "send link"</li><li>Ask 10 people on WhatsApp what they struggle with</li></ul>
+<details class="pm"><summary>Prompt 22: Mine pain points</summary>
+<div class="pb">I will paste 30 comments or questions from my target audience. Group them into the top 7 problems. For each: the exact words people use, how strong the pain is (1-10), and one digital product that could solve it. [paste comments]</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 23: Customer interview questions</summary>
+<div class="pb">Write 10 short questions I can ask [audience] on WhatsApp to learn what they struggle with and what they would pay for. Do not sell. Questions must be easy to answer in one line.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 24: Pre-sell test</summary>
+<div class="pb">Help me test demand before I build. Write a short post and a WhatsApp message offering [product idea] at an early-bird price of ₹[price], with a note that it ships in 7 days. Also tell me how many yes replies mean I should build it.</div><button class="cp">Copy prompt</button></details>
+<div class="card tip"><h4>Proof of demand</h4><p>10 people say "yes, I want it" or 3 people pay early. That is a green light. No yes = change the idea, not the ad.</p></div>
+</section>
+
+<section id="c2"><span class="tag">Chapter 2</span><h2>Make the product with AI</h2>
+<p class="lead">Make a small, useful version first. Finish in 3 days. Not perfect, useful.</p>
+<ol class="steps"><li>Write the outline with ChatGPT or Claude.</li><li>Write each part, one chapter per message.</li><li>Edit it in your own voice. Add your own examples.</li><li>Design it free in Canva. Export as PDF.</li><li>Open the PDF on your phone. Fix anything hard to read.</li></ol>
+<details class="pm" open><summary>Prompt 3: Outline of the product</summary>
+<div class="pb">Create a detailed outline for a digital product: [product name] for [audience] who want [result].
+Format: [PDF guide / prompt pack / template]. Length: about 25 pages.
+Give chapter titles, what each chapter teaches, and one action the reader does at the end of each chapter. Use very simple English.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 4: Write one chapter</summary>
+<div class="pb">Write chapter [number]: [title] from the outline above. Use simple words, short sentences, a real Indian example, a step-by-step list, and a 3-point summary at the end. About 500 words.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 5: Make a 100-prompt pack</summary>
+<div class="pb">Create 100 ready-to-use AI prompts for [audience] to [goal]. Group them in 10 categories. Each prompt must have [brackets] where the user fills their details. Add a one-line "when to use" under each.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 6: Quality check</summary>
+<div class="pb">Review this product like a strict customer. Tell me what is confusing, what is missing, what is too long, and what a buyer would ask for a refund about. Then give a fixed version. [paste your text]</div><button class="cp">Copy prompt</button></details>
+<div class="card warn"><h4>Do not</h4><p>Do not copy other people's content. Do not promise income, jobs, or medical results. Always add your own value.</p></div>
+<h3>Build an offer, not just a file</h3>
+<div class="card"><p><b>Main product:</b> solves the big problem.<br><b>Bonus 1:</b> a quick-start checklist.<br><b>Bonus 2:</b> ready templates or prompts.<br><b>Bonus 3:</b> a short video or audio walkthrough.<br><b>Safety:</b> a clear refund or support promise.</p><p>Buyers pay for the result and feel safe. Three useful bonuses beat 100 extra pages.</p></div>
+<details class="pm"><summary>Prompt 25: Bonuses and offer stack</summary>
+<div class="pb">My main product is [product] for [audience]. Suggest 5 bonuses that are cheap for me to make with AI but feel valuable. For each: name, what it contains, and the "value" price a buyer would feel. Then write the offer stack as a short list.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 26: Product name and promise</summary>
+<div class="pb">Give 15 product names for [product]. Pattern: clear result + time + audience, e.g. "7-Day Resume Fix for Freshers". Under 8 words each. Pick the best 3 and explain why.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 27: Free lead magnet</summary>
+<div class="pb">Create a free 3-page checklist related to [product] that gives a quick win and ends with an offer for the full product. Include title, content, and the last-page call to action.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>File opens on phone, text is readable</li><li>Name your file well: Brand_Product_V1.pdf</li><li>Add a welcome page with how to start and support contact</li><li>Ask 3 friends to use it first and tell you where they got stuck</li></ul>
+</section>
+
+<section id="c3"><span class="tag">Chapter 3</span><h2>Free store and landing page</h2>
+<div class="sc"><table><tr><th>Sell where?</th><th>Use</th></tr>
+<tr><td><b>In India</b> (UPI, Indian cards)</td><td><b>Superprofile</b></td></tr>
+<tr><td><b>Outside India</b> (dollars)</td><td><b>Gumroad</b></td></tr></table></div>
+<p>Both let you start free. They keep a small fee per sale, so check the current fees on their sites before you price.</p>
+<h3>Set up in 6 steps</h3>
+<ol class="steps"><li>Sign up and complete KYC. Keep PAN and bank details ready.</li><li>Click "Add product". Upload your PDF or file.</li><li>Add a cover image, product name, and price.</li><li>Paste your sales copy (Chapter 4).</li><li>Turn on payment. Buy your own product once to test.</li><li>Copy the page link. This link goes in your ad.</li></ol>
+<h3>What your page needs</h3>
+<ul class="chk"><li>Headline with the result</li><li>3 to 5 benefit points</li><li>What is inside the product</li><li>Who it is for</li><li>Price and one big button</li><li>Questions and answers</li><li>Your support contact</li></ul>
+<h3>Build trust fast (you have no fame yet)</h3>
+<ul class="chk"><li>Real preview pages or sample screenshots</li><li>Your name, photo and short story: why you made this</li><li>Refund or support promise in plain words</li><li>First 5 buyers: ask for a short review and add it</li><li>Contact: WhatsApp or email shown clearly</li></ul>
+<div class="card tip"><h4>One page, one goal</h4><p>No menu, no side links. The page has one button: Buy. More links means fewer sales.</p></div>
+<div class="card"><h4>Superprofile vs Gumroad quick notes</h4><p><b>Superprofile:</b> built for India, UPI payments, WhatsApp-friendly links.<br><b>Gumroad:</b> global cards, easy for dollar pricing, simple digital downloads.<br>Check each site for current fees, payouts, taxes and KYC before you start.</p></div>
+<details class="pm"><summary>Prompt 28: Handle objections</summary>
+<div class="pb">List the 10 doubts a buyer of [product] will have (price, trust, "will it work for me", time, quality). Write a short honest answer for each to use as FAQs on my page.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 29: Thank-you message and email</summary>
+<div class="pb">Write a thank-you message and a short delivery email for buyers of [product]. Include how to open the file, a first-step action, a request for a review after 3 days, and a soft offer for my next product.</div><button class="cp">Copy prompt</button></details>
+<div class="card warn"><h4>Test it like a buyer</h4><p>Open your link on a phone, on mobile data, and pay once. If it takes more than 3 taps to buy, simplify it.</p></div>
+</section>
+
+<section id="c4"><span class="tag">Chapter 4</span><h2>Copywriting prompts</h2>
+<p class="lead">Copy that sells = result + proof + one clear next step.</p>
+<details class="pm" open><summary>Prompt 7: Full sales page</summary>
+<div class="pb">Write a sales page for [product] priced at ₹[price] for [audience].
+Sections: 1) headline with the main result 2) subheadline 3) the problem in 3 lines 4) what they get (bullets) 5) what is inside 6) who it is for and not for 7) 5 FAQs 8) a call-to-action button text.
+Tone: friendly, simple English. No fake claims, no income promises.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 8: 15 headlines</summary>
+<div class="pb">Write 15 headlines for [product] for [audience]. Use 5 styles: result, question, number, "how to", curiosity. Maximum 10 words each. Mark your top 3.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 9: Ad text</summary>
+<div class="pb">Write 10 short ad texts for [product]. Each: a hook (under 8 words), one benefit, and a call to action. Keep it honest and clear. Make 3 about pain, 3 about result, 2 about saving time, 2 about price.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 10: Hinglish version</summary>
+<div class="pb">Rewrite this copy in simple Hinglish (Hindi words in English letters) for Indian youth. Friendly tone, short lines. [paste copy]</div><button class="cp">Copy prompt</button></details>
+<h3>3 copy formulas that work</h3>
+<div class="sc"><table><tr><th>Formula</th><th>How</th></tr>
+<tr><td><b>PAS</b></td><td>Problem, then Agitate (show the pain), then Solution</td></tr>
+<tr><td><b>BAB</b></td><td>Before (life now), After (life with it), Bridge (your product)</td></tr>
+<tr><td><b>AIDA</b></td><td>Attention, Interest, Desire, Action</td></tr></table></div>
+<details class="pm"><summary>Prompt 30: Write in PAS, BAB and AIDA</summary>
+<div class="pb">Write 3 versions of a short landing page intro for [product], one each in PAS, BAB and AIDA style. 120 words each. Audience: [audience]. Keep claims honest and specific.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 31: Make the offer stronger</summary>
+<div class="pb">Here is my sales copy. Find 7 weak spots: vague words, missing proof, unclear benefit, weak call to action. Rewrite those lines to be clearer and more specific. [paste copy]</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 32: WhatsApp follow-up</summary>
+<div class="pb">Write 4 short WhatsApp messages for people who visited my page but did not buy: day 1 reminder, day 2 answer a doubt, day 3 small bonus, day 5 last chance. Friendly, never pushy.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 33: 5-email buyer sequence</summary>
+<div class="pb">Write a 5-email sequence for new subscribers of [product]: welcome, a quick win, a story, social proof, and offer. Subject lines under 7 words. Each email under 150 words.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Use words your buyer uses, not big words</li><li>Say a number: "in 7 days", "50 templates"</li><li>Read it aloud. If you stumble, rewrite it</li></ul>
+</section>
+
+<section id="c5"><span class="tag">Chapter 5</span><h2>Budget plan</h2>
+<p class="lead">Never spend money you cannot lose. Test small first.</p>
+<div class="card gold"><div class="big">₹10,000</div><p style="margin-top:8px">A good starting test budget for 30 days.</p></div>
+<div class="sc"><table><tr><th>Item</th><th>Amount</th></tr>
+<tr><td>Product tools (Canva, AI)</td><td>₹0–₹1,500</td></tr>
+<tr><td>Test ads (14 days)</td><td>₹6,000</td></tr>
+<tr><td>Image and video tools</td><td>₹1,000–₹2,000</td></tr>
+<tr><td>Safety money</td><td>₹1,500</td></tr></table></div>
+<h3>The maths of ₹1 lakh</h3>
+<div class="card"><p>Price ₹299. Sales needed for ₹1,00,000 = <b>335 sales</b>.<br>If 2 of 100 visitors buy, you need about <b>16,750 visitors</b>.<br>If a click costs ₹10, ads cost about ₹1,67,500. Too much!</p><p><b>So:</b> improve the page and the price first. At 5 buyers per 100 visitors the same goal costs about ₹67,000 in ads. A better page saves a lot of money.</p></div>
+<details class="pm"><summary>Prompt 11: Make my budget</summary>
+<div class="pb">I sell [product] at ₹[price]. My test budget is ₹[amount] for 14 days. Make a plan: daily ad budget, expected clicks at ₹[cost per click], expected sales at 1%, 2% and 4% conversion, and the break-even point. Show it in a table with simple words.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Stop rule: if you spend 2x your product price with zero sales, change the page or ad</li><li>Scale rule: if you earn more than you spend for 3 days, raise budget by 20%</li></ul>
+<h3>Price ladder: earn more per customer</h3>
+<div class="sc"><table><tr><th>Step</th><th>Example</th></tr>
+<tr><td><b>Entry</b></td><td>₹99 prompt pack</td></tr>
+<tr><td><b>Order bump</b></td><td>+₹49 extra templates at checkout</td></tr>
+<tr><td><b>Main</b></td><td>₹499 full guide</td></tr>
+<tr><td><b>Upsell</b></td><td>₹1,999 course or group</td></tr></table></div>
+<div class="card gold"><h4>Break-even formula</h4><p>Max you can pay per customer (CAC) = price minus platform fee. If you sell at ₹299 and fees are about ₹30, your CAC must stay under about ₹269 just to break even. Aim much lower.</p></div>
+<details class="pm"><summary>Prompt 34: Price ladder</summary>
+<div class="pb">Design a 4-step price ladder for [product] for Indian buyers: entry, bump, main, upsell. Give the price, what each contains, and why a buyer would say yes. Also calculate average order value if 20% take the bump and 5% take the upsell.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 35: Profit calculator</summary>
+<div class="pb">My numbers: price ₹[x], platform fee [x]%, cost per click ₹[x], conversion rate [x]%. Calculate cost per sale, profit per sale, break-even conversion rate, and how many sales I need for ₹1,00,000 profit. Show a table.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Test only one price change at a time</li><li>Track in a simple sheet: date, spend, clicks, sales, profit</li><li>Keep profit money separate from ad money</li></ul>
+</section>
+
+<section id="c6"><span class="tag">Chapter 6</span><h2>Image creatives with AI</h2>
+<ol class="steps"><li>Make 3 different angles: pain, result, price.</li><li>Create images with ChatGPT image, Canva AI, or Ideogram.</li><li>Add text in Canva (AI often spells words wrong).</li><li>Keep text big. Check on your phone.</li></ol>
+<details class="pm" open><summary>Prompt 12: Ad image</summary>
+<div class="pb">Create a clean square ad image for [product]. Show [a person using phone / the product mockup]. Bright background in [colour], lots of empty space for text, modern Indian look, no text inside the image, no logos.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 13: Product mockup</summary>
+<div class="pb">Create a realistic mockup of a phone screen showing a PDF guide titled [name], on a simple desk with soft light. No extra text.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>One idea per image</li><li>Max 6 words on image</li><li>Real, honest picture of your product</li><li>Check the current size rules in Ads Manager</li></ul>
+<h3>5 ad angles to test</h3>
+<div class="sc"><table><tr><th>Angle</th><th>Example</th></tr>
+<tr><td>Pain</td><td>Tired of rejected resumes?</td></tr>
+<tr><td>Result</td><td>Get a clean resume in 1 hour</td></tr>
+<tr><td>Time saver</td><td>Skip 10 hours of work</td></tr>
+<tr><td>Price</td><td>Less than a cup of coffee</td></tr>
+<tr><td>Proof</td><td>Used by 100 students</td></tr></table></div>
+<details class="pm"><summary>Prompt 36: Creative test plan</summary>
+<div class="pb">Make a creative test plan for [product]: 5 angles, 2 image ideas per angle, one headline and one line of text each. Present as a table with names like A1, A2 so I can track winners. Add what to measure.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 37: Image variations</summary>
+<div class="pb">Give 6 image prompts for the same ad (same product, same message) with different style: bright flat design, realistic photo, hand-drawn, dark mode, festival theme, minimal. Square, space for text, no text in image.</div><button class="cp">Copy prompt</button></details>
+<div class="card tip"><h4>Testing rule</h4><p>Change one thing at a time: image only, or headline only. Keep the winner, replace the loser. Do this every week.</p></div>
+</section>
+
+<section id="c7"><span class="tag">Chapter 7</span><h2>Video creatives and scripts</h2>
+<div class="card warn"><h4>Important</h4><p>ChatGPT and Claude do not make good videos. Use them to write the <b>script and scenes</b>. Then use a video tool to make the clips.</p></div>
+<h3>Tools for video</h3>
+<div class="sc"><table><tr><th>Need</th><th>Try</th></tr>
+<tr><td>AI clips</td><td>Veo, Kling, Runway, Hailuo</td></tr>
+<tr><td>Voice</td><td>ElevenLabs</td></tr>
+<tr><td>Edit and captions</td><td>CapCut (free)</td></tr>
+<tr><td>Talking avatar</td><td>HeyGen</td></tr></table></div>
+<p>Tool plans and free limits change often, so check each site.</p>
+<h3>The 4-part script (20 seconds)</h3>
+<ol class="steps"><li><b>Hook</b> (0-3 sec): stop the scroll with the problem.</li><li><b>Problem</b> (3-8 sec): show the pain.</li><li><b>Solution</b> (8-16 sec): show your product.</li><li><b>Call to action</b> (16-20 sec): "Link below. Check it now."</li></ol>
+<details class="pm" open><summary>Prompt 14: Video script</summary>
+<div class="pb">Write 5 video ad scripts of 20 seconds for [product] for [audience]. Use this structure: Hook (3s), Problem (5s), Solution (8s), Call to action (4s). For each give: spoken words, on-screen text, and the scene to show. Simple English, honest claims, no income promises.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 15: Scene prompts for AI video tool</summary>
+<div class="pb">Turn this script into 4 scene prompts for an AI video generator. Each scene: 5 seconds, vertical 9:16, describe camera, person, place, light and action in one paragraph. Keep the same person and look in every scene. [paste script]</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 16: 10 hooks</summary>
+<div class="pb">Write 10 scroll-stopping hooks under 8 words for [product]. Mix: question, shocking fact, "stop doing this", before-and-after, secret.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Vertical video, captions ON</li><li>First 3 seconds decide everything</li><li>Make 3 videos with 3 different hooks</li></ul>
+<h3>Video styles that work</h3>
+<div class="sc"><table><tr><th>Style</th><th>Best for</th></tr>
+<tr><td>Phone screen demo</td><td>Templates, apps, prompts</td></tr>
+<tr><td>Talking head (you or avatar)</td><td>Trust, courses</td></tr>
+<tr><td>Text-on-screen with music</td><td>Quick tips, low effort</td></tr>
+<tr><td>Before and after</td><td>Visible results</td></tr></table></div>
+<h3>Simple video workflow</h3>
+<ol class="steps"><li>Pick one hook from Prompt 16.</li><li>Write the script with Prompt 14.</li><li>Record screen or generate scenes with Prompt 15.</li><li>Make a voiceover (your own voice sounds most real).</li><li>Edit in CapCut: cut dead air, add big captions, add music.</li><li>Export vertical 9:16. Watch it on mute. Does it still make sense?</li></ol>
+<details class="pm"><summary>Prompt 38: Screen-demo script</summary>
+<div class="pb">Write a 25-second phone screen-recording script for [product]. Give each second range, what I tap or show, the spoken line, and the caption text. Show one real result at the end.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 39: Voiceover and captions</summary>
+<div class="pb">Rewrite this script as a natural voiceover for an Indian audience. Short sentences, easy to say, 55 words max. Then split it into caption lines of 4-5 words each. [paste script]</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 40: Edit plan for CapCut</summary>
+<div class="pb">Turn this script into a shot-by-shot edit plan for CapCut: clip length, text on screen, zoom or transition, sound effect, and where to place the call to action. [paste script]</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 41: AI avatar presenter script</summary>
+<div class="pb">Write a 30-second script for an AI avatar presenter selling [product]. Warm, honest tone. Hook in 3 seconds, one clear benefit, one proof line, and a call to action to tap the link.</div><button class="cp">Copy prompt</button></details>
+<div class="card warn"><h4>Video mistakes</h4><p>Long intros, tiny text, no captions, fake-looking faces, and promising results you cannot prove. Clear and honest beats fancy.</p></div>
+</section>
+
+<section id="c8"><span class="tag">Chapter 8</span><h2>Set up and launch ads</h2>
+<div class="card warn"><h4>Check first</h4><p>ChatGPT Ads is new. Access, countries, formats and prices change. Always check the official page and the in-app rules before you pay.</p></div>
+<ol class="steps"><li>Go to the official ChatGPT Ads page: <b>ads.openai.com</b>.</li><li>Create the advertiser account with your business details.</li><li>Add billing and a payment method.</li><li>Create a campaign. Choose the goal: website visits or sales.</li><li>Create an ad group. Add the topics where your ad should show (context hints).</li><li>Upload image or video. Add headline and text.</li><li>Paste your Superprofile or Gumroad link.</li><li>Set a small daily budget. Submit for review.</li></ol>
+<details class="pm" open><summary>Prompt 17: Topics for targeting</summary>
+<div class="pb">My product is [product] for [audience]. List 25 questions people would ask ChatGPT right before they need my product. Group them into 5 topics. Use real, natural wording.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 18: Policy check</summary>
+<div class="pb">Check this ad and landing page for risky claims, fake promises, or anything that may break advertising rules. Mark each risk and suggest safer words. [paste ad and page text]</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Test 3 ads, 1 budget</li><li>Run at least 3 days before judging</li><li>Never change everything at once</li></ul>
+<h3>Smart campaign structure</h3>
+<div class="sc"><table><tr><th>Level</th><th>Plan</th></tr>
+<tr><td>Campaign</td><td>One goal: sales or visits</td></tr>
+<tr><td>Ad group 1</td><td>Problem questions (pain topics)</td></tr>
+<tr><td>Ad group 2</td><td>Solution questions (how to, best tool)</td></tr>
+<tr><td>Ad group 3</td><td>Comparison questions (X vs Y)</td></tr>
+<tr><td>Ads</td><td>2-3 creatives per group</td></tr></table></div>
+<div class="card gold"><h4>Starter budget idea</h4><p>₹400 to ₹600 a day for 10-14 days. Split it across your ad groups. Do not judge before about 100 clicks.</p></div>
+<details class="pm"><summary>Prompt 42: Ad group plan</summary>
+<div class="pb">Plan 3 ad groups for [product]: problem, solution and comparison. For each give 8 topic ideas, a matching headline, ad text, and the page section the click should land on. Use natural words people type in ChatGPT.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 43: Campaign names and tracking sheet</summary>
+<div class="pb">Create a naming system for my campaigns, ad groups and ads (include date, angle, creative ID). Then give me a simple tracking sheet layout with columns I should fill every day.</div><button class="cp">Copy prompt</button></details>
+<ul class="chk"><li>Landing page loads in under 3 seconds</li><li>Ad promise = page promise</li><li>Payment tested, thank-you page works</li><li>No claims about income, health or guaranteed results</li><li>Support contact checked daily</li></ul>
+</section>
+
+<section id="c9"><span class="tag">Chapter 9</span><h2>Read data and grow</h2>
+<div class="sc"><table><tr><th>If you see</th><th>Fix</th></tr>
+<tr><td>Few clicks</td><td>Change hook, image, topics</td></tr>
+<tr><td>Clicks but no sales</td><td>Fix landing page, price, trust</td></tr>
+<tr><td>Sales but low profit</td><td>Raise price, add bonus, add upsell</td></tr>
+<tr><td>Profit for 3 days</td><td>Raise budget 20%</td></tr></table></div>
+<details class="pm" open><summary>Prompt 19: Analyse my results</summary>
+<div class="pb">Here are my ad results: spend ₹[x], impressions [x], clicks [x], sales [x], product price ₹[x]. Tell me my click rate, cost per click, conversion rate and profit. Say what is weak and give 3 simple tests for next week.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 20: Next product ideas</summary>
+<div class="pb">My buyers bought [product]. Suggest 5 follow-up products I can sell them: a bigger version, a template, a community, a course, a done-for-you service. Give price for each.</div><button class="cp">Copy prompt</button></details>
+<h3>The path to a big business</h3>
+<div class="flow"><div>₹1 lakh/month: 1 product + ads</div><i>↓</i><div>₹10 lakh/month: 5 products + email list</div><i>↓</i><div>₹1 crore/month: team, brand, courses</div><i>↓</i><div>Big company: software, apps, many markets</div></div>
+<h3>Weekly routine (30 minutes)</h3>
+<ol class="steps"><li>Open your sheet. Fill spend, clicks, sales.</li><li>Find the best ad and the worst ad.</li><li>Pause the worst. Make 2 new versions of the best.</li><li>Read buyer messages. Note repeated questions.</li><li>Add those answers to your page.</li></ol>
+<div class="sc"><table><tr><th>Data</th><th>Action</th></tr>
+<tr><td>100+ clicks, 0 sales</td><td>Page or price problem. Fix page first.</td></tr>
+<tr><td>Low click rate</td><td>New hook and image</td></tr>
+<tr><td>Good sales, small profit</td><td>Add bump, raise price 10-20%</td></tr>
+<tr><td>Strong profit 7 days</td><td>Raise budget 20% and clone winner</td></tr></table></div>
+<details class="pm"><summary>Prompt 44: Weekly review</summary>
+<div class="pb">Here is my week of data per ad: [paste spend, clicks, sales]. Rank my ads, say what to pause, what to scale, and write 3 new ad variations based on the winner. Also give one page improvement to test.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 45: A/B test planner</summary>
+<div class="pb">Make a 4-week A/B test plan for [product]: week 1 hook, week 2 image, week 3 price, week 4 page headline. For each: what to change, what to keep same, and what result counts as a win.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 46: Get reviews</summary>
+<div class="pb">Write a polite message asking buyers of [product] for a short review, with 3 easy questions to answer. Add a small thank-you gift idea for those who reply.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 47: Plan product 2 and 3</summary>
+<div class="pb">Using what buyers asked me: [paste questions], suggest 3 next products with name, price, and the simplest way to build each with AI in under a week. Rank them by profit potential.</div><button class="cp">Copy prompt</button></details>
+<h3>Grow beyond ads</h3>
+<ul class="chk"><li>Build an email or WhatsApp list from every buyer</li><li>Post reels showing your product daily</li><li>Offer a referral bonus</li><li>Bundle 3 products at one price</li><li>Add a higher-priced course or community</li></ul>
+</section>
+
+<section id="c10"><span class="tag">Chapter 10</span><h2>Your 30-day plan</h2>
+<ol class="steps"><li><b>Days 1-3:</b> Pick idea. Run Prompts 1 and 2.</li><li><b>Days 4-8:</b> Build product. Run Prompts 3 to 6.</li><li><b>Days 9-11:</b> Set up Superprofile or Gumroad. Test-buy it.</li><li><b>Days 12-14:</b> Write copy. Make images and 3 videos.</li><li><b>Days 15-28:</b> Run ads. Check every day. Fix one thing at a time.</li><li><b>Days 29-30:</b> Review results. Keep winners. Plan product 2.</li></ol>
+<div class="card tip"><h4>Golden rules</h4><ul class="chk"><li>Be honest in every ad</li><li>Give real value</li><li>Reply to customers fast</li><li>Test small, then scale</li><li>Never stop learning</li></ul></div>
+<h3>Your 90-day road map</h3>
+<div class="sc"><table><tr><th>Month</th><th>Goal</th></tr>
+<tr><td>1</td><td>Launch product 1. First 10 sales. Learn your numbers.</td></tr>
+<tr><td>2</td><td>Fix page, add bump and upsell. Reach profit on ads.</td></tr>
+<tr><td>3</td><td>Launch product 2. Start email list. Scale budget slowly.</td></tr></table></div>
+<h3>Mistakes that kill beginners</h3>
+<ul class="chk"><li>Spending big before testing the page</li><li>Changing many things at once</li><li>Copying others instead of adding value</li><li>Ignoring customer messages</li><li>Giving up before 100 clicks of data</li></ul>
+<details class="pm"><summary>Prompt 48: My personal coach</summary>
+<div class="pb">Be my business coach. My product: [product]. My numbers so far: [spend, clicks, sales]. My weekly time: [hours]. Give me this week's top 3 tasks in order, and one thing I must stop doing. Keep it short and direct.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 49: 90-day plan for me</summary>
+<div class="pb">Create a week-by-week 90-day plan to go from zero to ₹1 lakh in sales with [product]. My budget: ₹[amount]. My free time: [hours] per week. Include tasks, targets and a checkpoint each Sunday.</div><button class="cp">Copy prompt</button></details>
+<details class="pm"><summary>Prompt 50: Avoid policy trouble</summary>
+<div class="pb">List 15 risky claims or words I should avoid in ads and landing pages for [product niche], and safer ways to say each. Cover income, health, guarantees, and comparisons.</div><button class="cp">Copy prompt</button></details>
+</section>
+</main>
+
+<div class="foot"><div class="wrap">This guide is for learning. Results are not guaranteed. Platform fees, ad rules and tool plans change, so check official sites before paying.</div></div>
+
+<script>
+document.querySelectorAll('details.pm').forEach(function(d){
+  var b=d.querySelector('.cp'),p=d.querySelector('.pb');
+  if(!b||!p)return;
+  b.addEventListener('click',function(){
+    var t=p.innerText;
+    var done=function(){b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy prompt'},1500)};
+    try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}
+    function fb(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done()}catch(e){}}
+  });
+});
+addEventListener('scroll',function(){
+  var h=document.documentElement,x=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('bar').style.width=x+'%';
+},{passive:true});
+</script>
+</body>
+</html>
